@@ -1,0 +1,123 @@
+
+                   FORWARD  -  Version 3.0
+
+         Program documentation for PC on FORWARD.DOC. 
+
+PURPOSE: To run a geodetic forward to obtain geodetic coordinates.
+
+         Latitudes : North/South Hemisphere (+/- 0 to  89 59 59.9999)  
+         Longitude : East/West Hemisphere   (+/- 0 to 179 59 59.9999)
+
+AUTHOR:  STEVE FRAKES, NATIONAL GEODTIC SURVEY  
+
+DATE:    1985 SEPTEMBER 
+         2002 AUGUST (SID SAFFORD) 
+         2004 APRIL  (SID SAFFORD)
+
+INPUT: - Ellipsoid options :
+
+         - GRS80 (NAD83) / WGS84
+         - Clarke 1866 (NAD27)
+         - Any other ellipsoid
+
+       - Geodetic coordinates :            First Station (FROM station)
+       - Forward Azimuth (from North) to : Second Station (TO station)
+       - Distance (in meters) to :         Second Station (TO station)
+
+
+OUTPUT:
+       - Geodetic coordinates :                   Second Station
+       - Latitude of Second Station (TO station)
+       - Longitude of Second Station (TO station)
+       - Back azimuth (from North) to :           First Station
+
+
+EXECUTING FORWARD:
+
+       Hardware requirements:
+
+      - Can be run from hard disk or floppy disk.
+      - The 8087 math co-processor.
+      - 120K of main memory
+      - A printer with 80 character/line if hard copy is desired.
+
+       You will be supplied with with a floppy disk containing a file:
+       FORWARD.EXE.  If you want to run from floppy disk, set the drive
+       that contains the floppy to default.  If you have a hard disk
+       drive, you may want to load this program onto it so it may 
+       permanently reside there.
+
+       To execute:
+
+       Type in - FORWARD
+
+       Respond appropriately to prompts.
+
+       A sample copy of a run is listed below:
+
+
+
+Program Forward  -  Version 3.0    
+
+Ellipsoid options :
+
+1. GRS80 (NAD83) / WGS84 
+2. Clarke 1866 (NAD27)
+3. Any other ellipsoid
+
+Enter choice : 2
+
+How would you like to input the data?
+
+1 = By Keyboard
+2 = By File
+-> 1
+
+Write output to a file (y/n)?
+-> y
+
+Output file name?
+any_file_name
+
+  Enter FROM STATION NAME (Standpoint) : 
+SAMPLE_ONE
+                            
+  Enter FROM STATION GP (Geodetic Position) : 
+hDD MM SS.sssss  Latitude :      (h default = N )
+ 35 00 16.99130
+
+hDDD MM SS.sssss Longitude :     (h default = W )
+ 129 00 34.89797
+
+
+  Enter  TO  STATION NAME (Forepoint) : 
+SAMPLE_TWO
+
+DDD MM SS.sss    Forward Azimuth :   (from North) 
+120 36 34.30
+
+DDDDDD.dddd      Ellipsoid distance : (in meters) 
+1028.234
+
+
+Second Station : SAMPLE_TWO 
+---------------- 
+  LAT =  35 00 00.00000 North
+  LON = 129 00 00.00000 West 
+
+Forward azimuth        FAZ = 120 36 34.3000 From North
+Back azimuth           BAZ = 300 36 54.3178 From North
+Ellipsoidal distance     S =      1028.2340 m
+
+
+Enter your choice ...
+ 1 = FORWARD  -- Do another Forward
+ 0 = EXIT     -- End the Program
+ -> 0
+
+
+    The forward program is in ANSI standard Fortran 77.  The source code
+is on FORWARD.FOR.  This code may be compiled with either the Profort or
+RMfort compilers and linked to create the executable FORWARD.EXE.
+
+

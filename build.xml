@@ -1,0 +1,32 @@
+<project name="forward.web" default="linkall">
+    <property name="build" location="build"/>
+    <property name="obj" location="${build}/obj"/>
+    <property name="executable" location="${build}/forward.web.w"/>
+    <taskdef resource="cpptasks.tasks"/>
+    <!-- create directories for build and obj-->
+    <target name="init">
+      <mkdir dir="${build}"/>
+      <mkdir dir="${obj}"/>
+    </target>
+    <!-- compile Fotran-modules-->
+    <target name="f_compile" depends="init">
+      <cc name="f77" objdir="${obj}" subsystem="console">
+           <compilerarg value="-g" if="debug" />
+           <compilerarg value="-DSolaris" />
+           <fileset dir="." includes="*.f">
+           </fileset>
+           <includepath >
+           <pathelement location="/3rdlib/solaris/sybase/include"/>
+           <pathelement location="."/>
+        </includepath>
+      </cc>
+    </target>
+    <!-- link objects and make executable-->
+    <target name="linkall" depends="f_compile">
+    <cc name="f77" outtype="executable" subsystem="console" outfile="${executable}">
+      <fileset dir="${obj}" includes="*.o"/>
+      <libset dir="/3rdlib/solaris/sybase/lib" libs="sybdb" type="static"/>
+      <libset dir="/usr/lib" libs="nsl,m,socket,dl" />
+    </cc>
+    </target>
+</project>
