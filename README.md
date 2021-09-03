@@ -1,5 +1,5 @@
 # forward
-The geodetic forward, program FORWARD, is the tool for computing the latitude and longitude of a point, given the latitude and longitude of a starting point and the geodetic azimuth and geodetic distance between the points.
+The geodetic program FORWARD is the tool for computing the latitude and longitude of a point, given the latitude and longitude of a starting point and the geodetic azimuth and geodetic distance between the points.
 
 The three-dimensional versions of the geodetic inverse program FORWARD3D includes the ellipsoid height component.  Also included in the 3D program is:
 
